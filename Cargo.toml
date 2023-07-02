@@ -1,0 +1,52 @@
+[package]
+name = "simpledns"
+version = "0.1.0"
+edition = "2021"
+resolver = "2"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+clap = { version = "4.3.10", features = ["derive", "env", "cargo", "wrap_help"] }
+serde = { version = "1.0.164", features = ["derive", "alloc"] }
+tokio = { version = "1.29.1", features = ["full"] }
+tracing = "0.1.37"
+tracing-subscriber = { version = "0.3.17", features = ["env-filter", "local-time", "matchers", "once_cell", "parking_lot", "valuable"] }
+trust-dns-server = { version = "0.23.0-alpha.4", features = ["dns-over-https", "dns-over-quic", "recursor", "resolver", "dns-over-https-rustls", "backtrace", "sqlite"] }
+trust-dns-client = { version = "0.23.0-alpha.4", features = ["dns-over-https-rustls", "dnssec-ring", "dns-over-quic", "mdns", "backtrace"] }
+
+anyhow = "1.0.71"
+time = "0.3.22"
+
+
+[dependencies.serde_with]
+version = "3.0.0"
+features = ["time_0_3", "indexmap", "alloc", "base64"]
+
+[dependencies.bincode]
+version = "2.0.0-rc.3"
+features = ["serde"]
+
+[dependencies.rustls]
+version = "0.21.2"
+features = ["logging", "read_buf", "quic", "secret_extraction", "rustversion"]
+
+[dependencies.regex]
+version = "1.8.4"
+
+
+[dependencies.toml]
+version = "0.7.5"
+features = ["preserve_order"]
+
+[dependencies.build-info]
+git = "https://github.com/x0f5c3/build-info"
+branch = "main"
+features = ["runtime", "serde", "oxford-comma"]
+
+[build-dependencies.build-info-build]
+git = "https://github.com/x0f5c3/build-info"
+branch = "main"
+
+
+
